@@ -1,4 +1,4 @@
-![alt text]: (logo.png "Nelma logo")
+![nelma logo] (./logo.png)
 
 # About
 
