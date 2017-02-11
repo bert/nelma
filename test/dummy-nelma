@@ -1,0 +1,12 @@
+#!/bin/bash
+
+cat <<END
+* Created by NELMA capacitance calculator, version 2.0
+* Wed Sep 27 16:26:38 2006
+
+*
+* Command line: nelma-cap -s 50 -n 100 -w 1.7 -e 0.01 -d ../microstrip.em
+
+C0001 line gnd 4.887438e-13
+* numerical error: +/- 5.20e-14 (   11 %)
+END

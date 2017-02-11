@@ -1,0 +1,146 @@
+net gnd {
+	objects = {
+		"gnd1",
+		"gnd2"
+	}
+}
+
+net line {
+	objects = {
+		"line"
+	}
+}
+
+object gnd1 {
+	position = { 0, 0 }
+
+	material = "copper"
+
+	type = "rectangle"
+	role = "net"
+
+	size = { 200, 100 }
+}
+
+object gnd2 {
+	position = { 0, 0 }
+
+	material = "copper"
+
+	type = "rectangle"
+	role = "net"
+
+	size = { 200, 100 }
+}
+
+object line {
+	position = { 90, 0 }
+
+	material = "copper"
+
+	type = "rectangle"
+	role = "net"
+
+	size = { $x, 100 }
+}
+
+material air {
+	type = "dielectric"
+
+	permittivity = 8.85e-12
+	conductivity = 1e-10
+	permeability = 0.0
+}
+
+material copper {
+	type = "metal"
+
+	permittivity = 0.0
+	conductivity = 5.96e7
+	permeability = 0.0
+}
+
+material composite {
+	type = "dielectric"
+
+	permittivity = 3.54e-11
+	conductivity = 1e-10
+	permeability = 0.0
+}
+
+layer air-top {
+	height = 100
+	z-order = 70 
+
+	material = "air"
+}
+
+layer component {
+	height = 3
+	z-order = 60
+
+	material = "air"
+
+	objects = {
+			"gnd1"
+	}
+}
+
+layer substrate2 {
+	height = 70
+	z-order = 50
+
+	material = "composite"
+}
+
+layer embedded {
+	height = 3
+	z-order = 40
+
+	material = "composite"
+
+	objects = {
+			"line"
+	}
+}
+
+
+layer substrate1 {
+	height = 70
+	z-order = 30
+
+	material = "composite"
+}
+
+layer solder {
+	height = 3
+	z-order = 20
+
+	material = "air"
+
+	objects = {
+			"gnd2"
+	}
+}
+
+layer air-bottom {
+	height = 100
+	z-order = 10
+
+	material = "air"
+}
+
+space test {
+	/* 1, 2, 0.5 mil */
+ 	step = { 2.54e-5, 5.08e-5, 1.27e-5 } 
+
+	layers = { 
+			"air-top", 
+			"component",
+			"substrate1",
+			"embedded",
+			"substrate2",
+			"solder",
+			"air-bottom"
+	} 
+}

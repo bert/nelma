@@ -1,0 +1,8 @@
+config: microstrip.em.in
+start: 1
+stop: 40
+step: 2
+
+arguments: -s 50 -w 1.8 -e 0.01 -n 50
+
+formula: my $H=35; my $w=$x; my $t=2.5; my $l=400; my $er=4; $l * 1e-3 * 1e-12 * 0.67 * ( $er + 1.41 ) / ( log ( 5.98 * $H / ( 0.8 * $w + $t ) ) )

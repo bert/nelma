@@ -1,0 +1,47 @@
+Release 3.2 (5 Jul 2010)
+========================
+
+Make nelma compile with libpng-1.4.x (thanks to Thomas Klausner)
+
+Minor Makefile fixes.
+
+Release 3.0 (12 Dec 2006)
+=========================
+
+More efficient memory allocator.
+
+DRC checker.
+
+Save state on interrupt (-r option).
+
+Added man pages.
+
+Release 2.0 (23 Sep 2006)
+=========================
+
+Removed support for calculating resistance. Renamed executable from "nelma"
+to "nelma-cap".
+
+Added support for nets. Nets are collections of objects that are
+electrically connected.
+
+Fixed a lot of bugs in the field solver. Program can now automatically
+determine the size of the finite difference grid given the stand-off
+distance.
+
+Positions of the layer boundaries are determined automatically from layer
+heights.
+
+Replaced Gauss-Seidel iteration with SOR iteration.
+
+Program can now automatically determine how many iterations are needed to
+solve finite difference problem given the required maximum calculation
+error.
+
+A lot of code clean-up. Some parameters are now configurable through
+command-line arguments.
+
+Added install rule to the make file
+
+Removed "readpng.c" code that had a BSD-style license that was incompatible
+with GPL.

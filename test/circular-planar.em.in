@@ -1,0 +1,133 @@
+/*
+
+	Correct capacitance (using Kirchoff formula - includes edge effect)
+
+	(http://scienceworld.wolfram.com/physics/ParallelPlateCapacitor.html
+	 and http://chemandy.com/calculators/circular_capacitor_calculator.htm)
+
+	C = e * ( (pi * R^2) / d + R * ( ln ((16 * pi * R) / d) - 1) )
+
+	R = 100 cm = 1m
+	d = 1 cm = 0.01m
+
+	e = 3.54e-11 As/Vm
+
+	------------------
+
+	C = 1.1387534097e-8 = 11.4 nF
+
+*/
+
+net net1 {
+	objects = {
+		"p1"
+	}
+}
+
+net net2 {
+	objects = {
+		"p2"
+	}
+}
+
+object p1 {
+	position = { 0, 0 }
+
+	material = "copper"
+
+	type = "circle"
+	role = "net"
+
+	radius = $x
+}
+
+object p2 {
+	position = { 0, 0 }
+
+	material = "copper"
+
+	type = "circle"
+	role = "net"
+
+	radius = $x
+}
+
+material plastic {
+	type = "dielectric"
+
+	permittivity = 3.54e-11
+	conductivity = 1e-10
+	permeability = 0.0
+}
+
+material air {
+	type = "dielectric"
+
+	permittivity = 8.85e-12
+	conductivity = 1e-10
+	permeability = 0.0
+}
+
+material copper {
+	type = "metal"
+
+	permittivity = 0.0
+	conductivity = 5.96e7
+	permeability = 0.0
+}
+
+layer air-top {
+	height = 20
+	z-order = 10 
+
+	material = "air"
+}
+
+layer component {
+	height = 5
+	z-order = 9
+
+	material = "air"
+
+	objects = {
+			"p1"
+	}
+}
+
+layer substrate {
+	height = 10 
+	z-order = 8
+
+	material = "plastic"
+}
+
+layer solder {
+	height = 5
+	z-order = 7
+
+	material = "air"
+
+	objects = {
+			"p2"
+	}
+}
+
+layer air-bottom {
+	height = 20
+	z-order = 6
+
+	material = "air"
+}
+
+space test {
+	/* 1cm x 1cm x 0.1cm */
+ 	step = { 1e-2, 1e-2, 1e-3 } 
+
+	layers = { 
+			"air-top", 
+			"component",
+			"substrate",
+			"solder",
+			"air-bottom"
+	} 
+}

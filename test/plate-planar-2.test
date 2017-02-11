@@ -1,0 +1,8 @@
+config: plate-planar-2.em.in
+start: 10
+stop: 200
+step: 10
+
+arguments: -s 50 -w 1.8 -e 0.01 -n 50
+
+formula: my $e=8.85e-12; my $a=$x*1e-3; my $d=3e-4; $e * $a * $a / $d

@@ -1,0 +1,152 @@
+.TH NELMA-CAP 1 2006-12-10 "Tomaz Solc" "Nelma User's Manual"
+.SH NAME
+nelma-cap \- Numerical capacitance calculator
+.SH SYNOPSIS
+.B nelma-cap
+[
+.I options
+]
+.I config-file.em
+.SH DESCRIPTION
+.B nelma-cap
+is a tool for numerically calculating capacitances between different 
+conducting structures (usually called nets) on printed circuit boards.
+.P
+It prints to standard output an equivalent circuit of concentrated
+capacitances in SPICE compatible format that can be used for example for
+more accurate circuit simulation (in most cases you can simply attach this
+output to your SPICE circuit description file).
+.P
+Error and informational messages are printed to standard error.
+.SH OPTIONS
+.TP
+.B \-s STANDOFF
+.B STANDOFF 
+is the distance from the edges of the currently evaluated
+conducting structure to the grounded box that forms the boundary conditions
+for the field calculation. In mesh units. The optimum value depends on the
+geometry of your circuit. With this setting you can control the compromise
+between the computing time (lower standoff) and accuracy (higher standoff).
+If the distance between two nets is larger than the standoff distance, then
+the program will assume that the capacitance between them is negligible.
+.TP
+.B \-n ITERATIONS
+The number of iterations of the SOR algorithm between two checks of the
+convergence criteria. The default (100) usually works fine. Should be
+greater than the standoff value. 
+.TP
+.B \-w SOR_OMEGA
+The extrapolation parameter for the SOR algorithm which affects the speed
+of convergence. Its value must be between 0.0 and 2.0 for the SOR algorithm
+to work properly. In most cases the optimal value is between 1.0 and 2.0
+(1.7 is a good guess). If you're not sure, use 1.0 which reduces the SOR
+algorithm to Gauss-Seidel iteration which should always work.
+.IP
+It is impossible to calculate an optimal value, so you will have to experiment a
+bit. A bad guess will cause
+.B nelma-cap
+to take significantly more time to compute all capacitances.
+.TP
+.B \-e MAX_ERROR
+This option sets the convergence criterion. MAX_ERROR is the maximum relative
+numerical error of the calculated capacitance (example: 0.02 means that all
+capacitances will be calculated with 2% or better accuracy).
+.IP
+Note that MAX_ERROR only affects the accuracy of the SOR algorithm
+(i.e. numerical error of the field calculation). A wrong value of STANDOFF
+for example can cause results to have large errors even when numerical
+errors are negligible.
+.TP 
+.B -r
+If a previous calculation was interrupted you can resume it by using this
+flag. 
+.B nelma-cap
+will read the saved state from a file named
+.I nelma.save
+and continue processing the specified configuration file. You have to
+specify all other command line options exactly as before to get correct
+results.
+.TP
+.B \-d
+Dump electrostatic field strength. For each net
+.B nelma-cap
+writes three files in the current directory with names 
+.IR net-x.dat , 
+.I net-y.dat
+and
+.IR net-layer.dat , 
+where 
+.I net
+is replaced with the name actual net name and
+.I layer
+is replaced with names of layers defined in the configuration file. These files contain cross-sections of the electrostatic field strength around the selected net when this net is connected to 1V voltage supply and all other nets are grounded.
+
+This output is in a
+.B gnuplot 
+friendly format. To draw it with a recent Gnuplot version, use the following commands:
+
+gnuplot> set pm3d map corners2color c1
+.br
+gnuplot> set palette rgbformula 34,35,36
+.br
+gnuplot> splot "net-x.dat" using 3    # plots field strength
+.br
+gnuplot> splot "net-x.dat" using 4    # plots electric potential
+.br
+gnuplot> splot "net-x.dat" using 5    # plots permittivity
+.br
+gnuplot> splot "net-x.dat" using 6    # plots plots object boundaries
+.TP
+.B \-v VERBOSITY
+.B VERBOSITY
+is an integer larger than 0. Larger values will cause 
+.B nelma-cap
+to output more messages to the standard error.
+.SH USAGE
+During the calculation you can send SIGINT to the process (pressing CTRL-C
+has the same effect on most system). This will interrupt the calculation
+gracefully and allow
+.B nelma-cap
+to save its state to a file named
+.I nelma.save
+\. You can later resume this calculation by adding \-r option to the
+command line.
+.SH IMPLEMENTATION
+Capacitances are calculated by:
+.IP
+Connecting one net to a known voltage (1V) and other nets to ground.
+.IP
+Calculating the electric potential throughout the object with finite
+difference method.
+.IP
+Calculating the charge accumulated on nets by calculating electric flux.  Electric flux is calculated through a surface that is one grid unit away from the net. This means that different object should be at least three grid units away from each other to get reliable results.
+.IP
+Dividing charge by voltage.
+.P
+The algorithm is therefore of O(n^2) time complexity regarding the number of
+nets. This way we also get to calculate each capacitance twice. The
+difference between these two calculations is used as an estimation of
+numerical error.
+.P
+The finite difference method allocates memory that is proportional the cube
+of dimensions. The field solving algorithm itself is of O(n^3) time
+complexity.
+.P
+The system of linear equations that is produced by the finite difference
+method is currently solved with a SOR iterative algorithm with a constant
+extrapolation factor.
+.SH CONFIGURATION FILE FORMAT
+See examples included in the distribution.
+.SH EXAMPLES
+To calculate capacitances for a typical printed circuit board using image layer masks exported with 200 DPI:
+.P
+$
+.B nelma-cap 
+\-s 70 \-n 100 \-w 1.8 \-e 0.15 
+.I example.em 
+> 
+.I example.spi
+.SH AUTHOR
+Tomaz Solc (tomaz.solc@tablix.org)
+.SH SEE ALSO
+.BR nelma-drc (1)

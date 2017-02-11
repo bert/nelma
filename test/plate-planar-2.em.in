@@ -1,0 +1,136 @@
+/* Analytical calculation of capacitance between net1 and net2: 
+
+*/
+
+net net1 {
+	objects = {
+		"p1",
+		"p4"
+	}
+}
+
+net net2 {
+	objects = {
+		"p2",
+		"p3"
+	}
+}
+
+object p1 {
+	position = { 0, 0 }
+
+	material = "copper"
+
+	type = "rectangle"
+	role = "net"
+
+	size = { $x, $x }
+}
+
+object p2 {
+	position = { 0, 0 }
+
+	material = "copper"
+
+	type = "rectangle"
+	role = "net"
+
+	size = { $x, $x }
+}
+
+object p3 {
+	position = { 0, 0 }
+
+	material = "copper"
+
+	type = "rectangle"
+	role = "net"
+
+	size = { $x, $x }
+}
+
+object p4 {
+	position = { 0, 0 }
+
+	material = "copper"
+
+	type = "rectangle"
+	role = "net"
+
+	size = { $x, $x }
+}
+
+
+material air {
+	type = "dielectric"
+
+	permittivity = 8.85e-12
+	conductivity = 1e-10
+	permeability = 0.0
+}
+
+material copper {
+	type = "metal"
+
+	permittivity = 0.0
+	conductivity = 5.96e7
+	permeability = 0.0
+}
+
+layer air-top {
+	height = 20
+	z-order = 10 
+
+	material = "air"
+}
+
+layer component {
+	height = 5
+	z-order = 9
+
+	material = "air"
+
+	objects = {
+			"p1",
+			"p4"
+	}
+}
+
+layer substrate {
+	height = 3
+	z-order = 8
+
+	material = "air"
+}
+
+layer solder {
+	height = 5
+	z-order = 7
+
+	material = "air"
+
+	objects = {
+			"p2",
+			"p3"
+	}
+}
+
+layer air-bottom {
+	height = 20
+	z-order = 6
+
+	material = "air"
+}
+
+space test {
+	/* 1mm x 1mm x 0.1mm */
+ 	step = { 1e-3, 1e-3, 1e-4 } 
+
+	layers = { 
+			"air-top", 
+			"component",
+			"substrate",
+			"solder",
+			"air-bottom"
+	} 
+}

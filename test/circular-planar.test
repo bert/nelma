@@ -1,0 +1,8 @@
+config: circular-planar.em.in
+start: 10
+stop: 200
+step: 10
+
+arguments: -s 50 -w 1.8 -e 0.01 -n 50
+
+formula: my $pi=3.1415; my $e=3.54e-11; my $R=$x/100; my $d=1e-2; $e * ( ($pi * $R * $R) / $d + $R * ( log ((16 * $pi * $R) / $d) - 1) )

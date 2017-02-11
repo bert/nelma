@@ -1,0 +1,8 @@
+config: stripline.em.in
+start: 1
+stop: 40
+step: 2
+
+arguments: -s 50 -w 1.8 -e 0.01 -n 50
+
+formula: my $H=35; my $w=$x; my $t=1.5; my $l=200; my $er=4; $l * 1e-3 * 1e-12 * 1.41 * $er / ( log ( 3.81 * $H / ( 0.8 * $w + $t ) ) )

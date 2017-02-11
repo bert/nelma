@@ -1,0 +1,104 @@
+NELMA version 3.2, README file
+
+CONTENTS
+========
+
+	What is this
+	Compiling
+	Usage
+	How it works
+	To-do and known bugs
+	Copyright and license
+
+
+
+WHAT IS THIS
+============
+
+Nelma is a tool for numerically calculating various electrical properties
+of printed circuit boards or similar objects composed of conductors and
+dielectrics (however code is optimized for circuit board-like geometry).
+
+It is currently capable of calculating capacitances between objects -
+nets on a PCB. Returns an equivalent circuit of stray capacitances that 
+can be used for more accurate circuit simulation.
+
+This is work in progress.
+
+
+
+COMPILING
+=========
+
+You will need:
+
+  GCC (developed on 4.1.2)
+  libpng (developed on 1.2.8)
+  libconfuse (developed on 2.5)
+
+Any recent version of these libraries should work fine. If you want to
+build source code documentation you will also need Cosigner
+
+On Debian Testing you can use these packages: 
+
+  $ apt-get install libpng12-dev libconfuse-dev doxygen
+
+Before compiling, have a look at the Makefile in the top and src/ directory. 
+If you would like to install binaries into some global directory (like
+/usr/local/bin), take a look at the PREFIX variable.
+
+Also check the CFLAGS variable. My experience shows that "--ffast-math -O2"
+works fine and results in a somewhat faster binary. YMMV. Use the proper
+"-march" flag for your machine. Use "-DDEBUG" to enable expensive assertion
+checks in the code.
+
+Compile and install by running make in the top directory
+
+  $ make 
+  $ make install
+
+If this fails, you will have to tweak the Makefile by hand. Sorry,
+autoconf/automake is an overkill for such a small project.
+
+Executable ("nelma-cap") can then be found in the src/ directory or in the
+installation directory.
+
+
+
+TO-DO AND KNOWN BUGS
+====================
+
+Any weirdness in the config file will most likely end up in a segfault. In
+such a case increase the verbosity and look for any errors that are
+displayed before the segault.
+
+Most likely cause of a floating point exception: material with 0.0
+permittivity that is NOT used for an object.
+
+Doxygen documentation is far from complete.
+
+Needs more verification.
+
+Check for nets that are less than 2 grid points apart.
+
+Calculate ETA.
+
+
+
+COPYRIGHT AND LICENSE
+=====================
+
+Code is Copyright (c) 2006 Tomaz Solc, unless stated otherwise.
+
+This program is free software; you can redistribute it and/or modify it
+under the terms of the GNU General Public License version 2 as published by
+the Free Software Foundation 
+
+This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+more details.
+
+You should have received a copy of the GNU General Public License along
+with this program; if not, write to the Free Software Foundation, Inc., 
+59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
