@@ -1,4 +1,4 @@
-![nelma logo] (./logo.png)
+![nelma logo] (logo.png)
 
 # About
 
