@@ -1,3 +1,9 @@
+/**
+ * @file src/decompose.c
+ *
+ * @brief , code.
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -39,7 +45,11 @@ int a_ras=10;
 #define MIN(a,b)	((a)<(b)?(a):(b))
 #define MAX(a,b)	((a)>(b)?(a):(b))
 
-/* only works for horizontal and vertical lines */
+/**
+ * @brief .
+ *
+ * @note Only works for horizontal and vertical lines.
+ */
 int cross(struct line *l1, struct line *l2) 
 {
 	struct line *t;
