@@ -1,3 +1,9 @@
+/**
+ * @file src/data.c
+ *
+ * @brief , code.
+ */
+
 #include <stdlib.h>
 #include <string.h>
 
@@ -10,12 +16,14 @@
 #include "space.h"
 #include "malloc.h"
 
-/** @brief Return 0 if the coordinates of the point fall within the 
+/**
+ * @brief Return 0 if the coordinates of the point fall within the 
  * allocated chunk of the bitmap. 
  *
  * @param pos Coordinates of the point in map coordinates.
  * @param size Size of the allocated piece of the bitmap
- * @return 1 if \a pos is a valid map location or 0 otherwise. */
+ * @return 1 if \a pos is a valid map location or 0 otherwise.
+ */
 int map_check(n_v2i pos, n_v2i size)
 {
 	assert(size.x>0);
@@ -116,13 +124,15 @@ void sp_clear(struct space *sp)
 }
 */
 
-/** @brief Allocate and initialize a new layer structure. 
+/**
+ * @brief Allocate and initialize a new layer structure. 
  *
  * @param height Height of the layer in grid units. 
  * @param order Z-order of the layer. Layer with the lowest order number 
  * has the lowest z coordinates.
  * @param mat Default material for this layer.
- * @return Pointer to the allocated struct or NULL on error. */
+ * @return Pointer to the allocated struct or NULL on error.
+ */
 struct layer *lay_init(n_int height, n_int order, struct material *mat)
 {
 	struct layer *lay;
@@ -238,11 +248,13 @@ void mat_done(struct material *mat)
 	return;
 }
 
-/** @brief Attaches an object to a layer.
+/**
+ * @brief Attaches an object to a layer.
  *
  * @param lay Pointer to the layer structure.
  * @param obj Pointer to the object to be attached.
- * @return Index of the attached object or -1 on error. */
+ * @return Index of the attached object or -1 on error.
+ */
 int lay_obj_attach(struct layer *lay, struct object *obj)
 {
 	assert(lay!=NULL);
@@ -258,7 +270,8 @@ int lay_obj_attach(struct layer *lay, struct object *obj)
 	return lay->objnum-1;
 }
 
-/** @brief Sets a square region of a bitmap to a constant value. 
+/**
+ * @brief Sets a square region of a bitmap to a constant value. 
  *
  * All coordinates are relative to the bitmap lower-left corner 
  * (which has coordniate 0,0).
@@ -288,7 +301,8 @@ void map_set_square(char *map, n_v2i center, int r, n_v2i size, char c)
 	}
 }
 
-/** @brief Sets a circular region of a bitmap to a constant value. 
+/**
+ * @brief Sets a circular region of a bitmap to a constant value. 
  *
  * All coordinates are relative to the bitmap lower-left corner 
  * (which has coordniate 0,0).
