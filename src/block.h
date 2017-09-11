@@ -1,31 +1,40 @@
+/**
+ * @file src/block.h
+ * 
+ * @brief Mesh blocks, header
+ */
+
 #ifndef _BLOCK_H
 #define _BLOCK_H
 
-/** @file 
- * @brief Mesh blocks, header */
-
 #include "space.h"
 
-/** @brief Fast way of getting or setting the value of a mesh point.
+/**
+ * @brief Fast way of getting or setting the value of a mesh point.
  *
  * @sa blk_n_get()
  *
  * @param _blk_ Pointer to a mesh block.
- * @param _pos_ Position of the mesh point in valid block coordinates. */
+ * @param _pos_ Position of the mesh point in valid block coordinates.
+ */
 #define BLK_N(_blk_, _pos_)	((_blk_)->n[blk_off3((_blk_), (_pos_))])
 
-/** @brief Fast way to check if a mesh point is constant.
+/**
+ * @brief Fast way to check if a mesh point is constant.
  *
  * @param _blk_ Pointer to a mesh block.
- * @param _pos_ Position of the mesh point in valid block coordinates. */
+ * @param _pos_ Position of the mesh point in valid block coordinates.
+ */
 #define BLK_CON(_blk_, _pos_)	((_blk_)->con[blk_off3((_blk_), (_pos_))])
 
-/** @brief Fast way to get material property.
+/**
+ * @brief Fast way to get material property.
  *
  * @sa blk_a_get()
  *
  * @param _blk_ Pointer to a mesh block.
- * @param _pos_ Position in valid block coordinates. */
+ * @param _pos_ Position in valid block coordinates.
+ */
 #define BLK_A(_blk_, _pos_)	((_blk_)->a[blk_off2((_blk_), (_pos_))])
 
 n_float blk_n_get(struct block *blk, n_v3i pos);

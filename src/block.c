@@ -1,11 +1,15 @@
+/**
+ * @file src/block.c
+ *
+ * @brief Mesh blocks, code
+ */
+
 #include "assert.h"
 #include "block.h"
 #include "malloc.h"
 
-/** @file 
- * @brief Mesh blocks, header */
-
-/** @brief Set some default values for the mesh block structure.
+/**
+ * @brief Set some default values for the mesh block structure.
  *
  * Defaults are: constant block, homogeneous block, 0.0 value, 
  * 0.0 material property.
@@ -42,10 +46,12 @@ void blk_init(struct block *blk, struct space *sp, n_v3i pos, n_v3i size)
 	blk->sp=sp;
 }
 
-/** @brief Converts a mesh block from homogeneous to heterogeneous. 
+/**
+ * @brief Converts a mesh block from homogeneous to heterogeneous. 
  *
  * @param blk Pointer to the mesh block to be converted
- * @return 0 on success and -1 on error. */
+ * @return 0 on success and -1 on error.
+ */
 int blk_convert_heterogeneous(struct block *blk)
 {
 	size_t memsize, n;
@@ -63,7 +69,8 @@ int blk_convert_heterogeneous(struct block *blk)
 	return 0;
 }
 
-/** @brief Converts a mesh block from heterogeneous to homogeneous.
+/**
+ * @brief Converts a mesh block from heterogeneous to homogeneous.
  *
  * A check is performed. If the material property is homogeneous in this block
  * the block is marked as homogeneous and memory allocated for material map
@@ -72,7 +79,8 @@ int blk_convert_heterogeneous(struct block *blk)
  * If a block can't be converted this function has no effect.
  *
  * @param blk Pointer to the mesh block to be converted.
- * @return 1 if the block was converted or 0 if not. */
+ * @return 1 if the block was converted or 0 if not.
+ */
 int blk_convert_homogeneous(struct block *blk)
 {
 	size_t memsize, n;
@@ -104,10 +112,12 @@ int blk_convert_homogeneous(struct block *blk)
 	return 1;
 }
 
-/** @brief Converts a mesh block from constant to variable.
+/**
+ * @brief Converts a mesh block from constant to variable.
  *
  * @param blk Pointer to the mesh block to be converted
- * @return 0 on success and -1 on error. */
+ * @return 0 on success and -1 on error.
+ */
 int blk_convert_variable(struct block *blk)
 {
 	size_t memsize, n;
@@ -134,7 +144,8 @@ int blk_convert_variable(struct block *blk)
 	return 0;
 }
 
-/** @brief Converts a mesh block from variable to constant.
+/**
+ * @brief Converts a mesh block from variable to constant.
  *
  * A check is performed. If all mesh points in this block are constant and 
  * have equal values then this block is marked as constant and memory 
@@ -143,7 +154,8 @@ int blk_convert_variable(struct block *blk)
  * If a block can't be converted this function has no effect.
  *
  * @param blk Pointer to the mesh block to be converted
- * @return 1 if the block was converted or 0 if not. */
+ * @return 1 if the block was converted or 0 if not.
+ */
 int blk_convert_constant(struct block *blk)
 {
 	size_t memsize, i;
@@ -182,9 +194,11 @@ int blk_convert_constant(struct block *blk)
 	return 1;
 }
 
-/** @brief Frees any memory allocated for arrays in a mesh block 
+/**
+ * @brief Frees any memory allocated for arrays in a mesh block 
  *
- * @param blk Pointer to the mesh block */
+ * @param blk Pointer to the mesh block.
+ */
 void blk_free(struct block *blk) 
 {
 	if(blk->a!=NULL) {
@@ -203,7 +217,8 @@ void blk_free(struct block *blk)
 	}
 }
 
-/** @brief Get array index of a mesh point value at position \a pos.
+/**
+ * @brief Get array index of a mesh point value at position \a pos.
  *
  * To get value of a mesh point, use:
  *
@@ -233,7 +248,8 @@ size_t blk_off3(struct block *blk, n_v3i pos) {
 	return ((pos.z * blk->size.y) + pos.y) * blk->size.x + pos.x;
 }
 
-/** @brief Get array index of a material property value at position \a pos.
+/**
+ * @brief Get array index of a material property value at position \a pos.
  *
  * To get material property value, use:
  *
@@ -254,7 +270,8 @@ size_t blk_off2(struct block *blk, n_v3i pos) {
 	return pos.y * blk->size.x + pos.x;
 }
 
-/** @brief Given a pointer to a mesh block and position in block coordinates
+/**
+ * @brief Given a pointer to a mesh block and position in block coordinates
  * find a block where these block coordinates are valid.
  *
  * Example: if pos.x<0, then this function moves the block pointer to the
@@ -296,13 +313,15 @@ inline static void blk_norm(struct block **blk, n_v3i *pos)
 	}
 }
 
-/** @brief Slow way of getting the value of a mesh point.
+/**
+ * @brief Slow way of getting the value of a mesh point.
  *
  * @sa BLK_N()
  *
  * @param blk Pointer to a mesh block.
  * @param pos Position of the mesh point (can fall outside of the current 
- * block). */
+ * block).
+ */
 n_float blk_n_get(struct block *blk, n_v3i pos)
 {
 	assert(blk != NULL);
@@ -316,13 +335,15 @@ n_float blk_n_get(struct block *blk, n_v3i pos)
 	}
 }
 
-/** @brief Slow way of getting a material property.
+/**
+ * @brief Slow way of getting a material property.
  *
  * @sa BLK_A()
  *
  * @param blk Pointer to a mesh block.
  * @param pos Position of the mesh point (can fall outside of the current 
- * block). */
+ * block).
+ */
 n_float blk_a_get(struct block *blk, n_v3i pos)
 {
 	assert(blk != NULL);
