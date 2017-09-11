@@ -79,11 +79,15 @@ where
 .I net
 is replaced with the name actual net name and
 .I layer
-is replaced with names of layers defined in the configuration file. These files contain cross-sections of the electrostatic field strength around the selected net when this net is connected to 1V voltage supply and all other nets are grounded.
+is replaced with names of layers defined in the configuration file.
+These files contain cross-sections of the electrostatic field strength
+around the selected net when this net is connected to 1V voltage supply
+and all other nets are grounded.
 
 This output is in a
 .B gnuplot 
-friendly format. To draw it with a recent Gnuplot version, use the following commands:
+friendly format. To draw it with a recent Gnuplot version, use the
+following commands:
 
 gnuplot> set pm3d map corners2color c1
 .br
@@ -119,7 +123,10 @@ Connecting one net to a known voltage (1V) and other nets to ground.
 Calculating the electric potential throughout the object with finite
 difference method.
 .IP
-Calculating the charge accumulated on nets by calculating electric flux.  Electric flux is calculated through a surface that is one grid unit away from the net. This means that different object should be at least three grid units away from each other to get reliable results.
+Calculating the charge accumulated on nets by calculating electric flux.
+Electric flux is calculated through a surface that is one grid unit away
+from the net. This means that different object should be at least three
+grid units away from each other to get reliable results.
 .IP
 Dividing charge by voltage.
 .P
@@ -138,7 +145,8 @@ extrapolation factor.
 .SH CONFIGURATION FILE FORMAT
 See examples included in the distribution.
 .SH EXAMPLES
-To calculate capacitances for a typical printed circuit board using image layer masks exported with 200 DPI:
+To calculate capacitances for a typical printed circuit board using image
+layer masks exported with 200 DPI:
 .P
 $
 .B nelma-cap 
