@@ -1,3 +1,9 @@
+/**
+ * @file src/drc.c
+ *
+ * @brief , code.
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -16,7 +22,9 @@ int a_minclear=2;
 img_color a_bgcolor=0;
 int a_minstandoff=INT_MAX;
 
-/** @brief Recursive line flood-fill algorithm. */
+/**
+ * @brief Recursive line flood-fill algorithm.
+ */
 static void drc_img_color_line(struct image *src_img, struct image *dst_img, 
 						n_v2i pos, n_v2i opos, 
 						img_color color)
