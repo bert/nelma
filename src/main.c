@@ -1,3 +1,9 @@
+/**
+ * @file src/main.c
+ *
+ * @brief Main program functions.
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -14,6 +20,9 @@
 
 char *a_configfile=NULL;
 
+/**
+ * @brief Interrupt handler.
+ */
 void main_interrupt(int num)
 {
 	error("\nInterrupt. Will finish this net and save state. Use '-r' to restore.");
@@ -23,6 +32,9 @@ void main_interrupt(int num)
 	signal(SIGINT, SIG_DFL);
 }
 
+/**
+ * @brief Print syntax.
+ */
 void main_syntax()
 {
 	printf("NELMA, Numerical ElectroMagnetics. Capacitance calculator version %s\n", VERSION);
@@ -42,6 +54,9 @@ void main_syntax()
 	return;
 }
 
+/**
+ * @brief Print header.
+ */
 void main_header(int argc, char **argv)
 {
 	int n;
@@ -60,6 +75,9 @@ void main_header(int argc, char **argv)
 	printf("\n\n");
 }
 
+/**
+ * @brief Parse command line arguments.
+ */
 void main_args(int argc, char **argv)
 {
 	int c,r;
@@ -116,6 +134,9 @@ void main_args(int argc, char **argv)
 	a_configfile=argv[optind];
 }
 
+/**
+ * @brief Main program function.
+ */
 int main(int argc, char **argv) 
 {
 	int r;
