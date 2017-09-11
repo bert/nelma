@@ -1,3 +1,9 @@
+/**
+ * @file src/capacitance.c
+ *
+ * @brief , code.
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -30,9 +36,10 @@ n_float a_maxerror=0.10;
 int a_restore=0;
 int a_interrupt=0;
 
-/* FIXME: move result handling logic to a separate module: this isn't specific
- * to capacitance calculation */
-
+/**
+ * @todo move result handling logic to a separate module: this isn't specific
+ * to capacitance calculation.
+ */
 static int cap_save_results(char *filename)
 {
 	FILE *f;
