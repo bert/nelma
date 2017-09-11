@@ -1,3 +1,9 @@
+/**
+ * @file src/assert.h
+ *
+ * @brief Assert macro definition.
+ */
+
 #ifndef _ASSERT_H
 #define _ASSERT_H
 
