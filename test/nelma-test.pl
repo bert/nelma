@@ -172,6 +172,6 @@ if($opts{r}) {
 	if($okflag) {
 		rename("test.tmp", $opts{o});
 	} else {
-		print("Error encountered. Will not overwrite original file.");
+		print("Error encountered. Will not overwrite original file.\n");
 	}
 }
