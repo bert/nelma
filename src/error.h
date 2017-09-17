@@ -1,5 +1,6 @@
 /**
- * @file src.error.h
+ * @file src/error.h
+ *
  * @brief TABLIX, PGA general timetable solver
  *
  * @author Copyright (C) 2002-2006 Tomaz Solc
