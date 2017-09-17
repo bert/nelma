@@ -1,3 +1,8 @@
+/**
+ * @file src/num.h
+ *
+ * @brief , header.
+ */
 #ifndef _NUM_H
 #define _NUM_H
 
@@ -9,27 +14,39 @@ enum axis_t {
 
 typedef enum axis_t n_axis;
 
-/** @brief Floating point type used for data point values. */
+/**
+ * @brief Floating point type used for data point values.
+ */
 typedef float n_float;
-/** @brief Integer type used for data point coordinates. */
+/**
+ * @brief Integer type used for data point coordinates.
+ */
 typedef int n_int;
 
-/** @brief 3-dimensional floating point vector. */
+/**
+ * @brief 3-dimensional floating point vector.
+ */
 struct v3f_t {
 	n_float x,y,z;
 };
 
-/** @brief 3-dimensional integer vector. */
+/**
+ * @brief 3-dimensional integer vector.
+ */
 struct v3i_t {
 	n_int x,y,z;
 };
 
-/** @brief 2-dimensional floating point vector. */
+/**
+ * @brief 2-dimensional floating point vector.
+ */
 struct v2f_t {
 	n_float x,y;
 };
 
-/** @brief 2-dimensional integer vector. */
+/**
+ * @brief 2-dimensional integer vector.
+ */
 struct v2i_t {
 	n_int x,y;
 };
