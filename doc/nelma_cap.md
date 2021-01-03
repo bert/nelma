@@ -142,7 +142,7 @@ conducting bodies at known potentials, we can calculate the potential in all
 points of space. From the potential value we can then calculate the field after
 equations:
 
-*** formula (2) ***
+![formula_2](nelma-cap_2.gif) (2)
 
 When we know the electric field in space, we can according to Gauss's theorem
 we calculate the charge on the j-th conductor by integrating the field over the plane
