@@ -153,7 +153,7 @@ A embracing the selected conductor:
 We can now calculate the shaken capacitances between the conductor i and
 translator j by definition:
 
-*** formula (4) ***
+![formula_4](nelma-cap_4.gif) ![formula_4-1](nelma-cap_4-1.gif) (4)
 
 When we repeat the above procedure for all i and j, we calculated all the capacitive
 sti in the circuit. In fact, without much increase in computational complexity,
