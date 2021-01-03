@@ -180,7 +180,7 @@ particularly constant (these steps are hereinafter denoted by hx, hy, and hz).
 The general equation in the system of linear equations into which
 Laplace's equation now looks like this:
 
-*** place a figure here ***
+![equation-1](nelma-cap_eq-1.gif)
 
 Where it applies
 
