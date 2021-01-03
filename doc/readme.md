@@ -1,4 +1,4 @@
-![nelma logo] (logo.png)
+![nelma logo](logo.png)
 
 # About
 
@@ -90,7 +90,7 @@ Do you have a material with 0.0 permittivity defined in your config file?
 
 There's a Nelma export HID for PCB.
 
-You can currently get [pcb] (https://sourceforge.net/projects/pcb/) from
+You can currently get [pcb](https://sourceforge.net/projects/pcb/) from
 SourceForge.
 
 In PCB select "File" - "Export layout" - "Nelma".
