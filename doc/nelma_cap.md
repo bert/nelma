@@ -135,7 +135,7 @@ the capacitance between them can be assumed to be zero.
 In the space inside the box, the Laplace differential equation now holds for
 potential (no free charge carriers in the room):
 
-*** formula (1) ***
+![formula_1](nelma-cap_1.gif) (1)
 
 Based on this equation and the boundary conditions we determined with the box and
 conducting bodies at known potentials, we can calculate the potential in all
