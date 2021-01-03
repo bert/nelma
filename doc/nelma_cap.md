@@ -148,7 +148,7 @@ When we know the electric field in space, we can according to Gauss's theorem
 we calculate the charge on the j-th conductor by integrating the field over the plane
 A embracing the selected conductor:
 
-*** formula (3) ***
+![formula_3](nelma-cap_3.gif) (3)
 
 We can now calculate the shaken capacitances between the conductor i and
 translator j by definition:
