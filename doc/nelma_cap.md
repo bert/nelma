@@ -192,7 +192,7 @@ Figure 1: Interpretation of indices at V and ε.
 
 Boundary conditions also introduce equations into the system in the form:
 
-*** place a figure here ***
+![equation-3](nelma-cap_eq-3.gif)
 
 The general equation mentioned above is really only needed at the boundaries between
 two layers. Within the layer, the substance is homogeneous along the axis, which means that
