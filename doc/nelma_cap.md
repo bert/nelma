@@ -184,7 +184,7 @@ Laplace's equation now looks like this:
 
 Where it applies
 
-*** place a figure here ***
+![equation-2](nelma-cap_eq-2.gif)
 
 *** place a figure here ***
 
