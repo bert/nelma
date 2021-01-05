@@ -198,7 +198,7 @@ The general equation mentioned above is really only needed at the boundaries bet
 two layers. Within the layer, the substance is homogeneous along the axis, which means that
 the equation is simplified as follows:
 
-*** place a figure here ***
+![equation-4](nelma-cap_eq-4.gif)
 
 Where it applies
 
