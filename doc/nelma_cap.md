@@ -244,7 +244,7 @@ bigger problem.
 
 I used the following algorithm [4]:
 
-*** formula (5) ***
+![formula_5](nelma-cap_5.gif) (5)
 
 *** formula (6) ***
 
