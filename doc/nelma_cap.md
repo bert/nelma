@@ -202,7 +202,7 @@ the equation is simplified as follows:
 
 Where it applies
 
-*** place a figure here ***
+![equation-5](nelma-cap_eq-5.gif)
 
 For layers that are also homogeneous along the x and y axes, we use the equation:
 
