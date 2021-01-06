@@ -210,7 +210,7 @@ For layers that are also homogeneous along the x and y axes, we use the equation
 
 Where it applies
 
-*** place a figure here ***
+![equation-7](nelma-cap_eq-7.gif)
 
 ### SOR iteration method
 
