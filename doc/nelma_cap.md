@@ -206,6 +206,10 @@ Where it applies
 
 For layers that are also homogeneous along the x and y axes, we use the equation:
 
+![equation-6](nelma-cap_eq-6.gif)
+
+Where it applies
+
 *** place a figure here ***
 
 ### SOR iteration method
