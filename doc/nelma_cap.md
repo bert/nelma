@@ -246,7 +246,7 @@ I used the following algorithm [4]:
 
 ![formula_5](nelma-cap_5.gif) (5)
 
-*** formula (6) ***
+![formula_6](nelma-cap_6.gif) (6)
 
 *** formula (7) ***
 
