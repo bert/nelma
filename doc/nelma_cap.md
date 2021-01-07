@@ -250,7 +250,7 @@ I used the following algorithm [4]:
 
 ![formula_7](nelma-cap_7.gif) (7)
 
-*** formula (8) ***
+![formula_8](nelma-cap_8.gif) (8)
 
 Where xi^(k) is the value of the i-th variable (in my case the value
 potential at some point in the network) after the k-th iteration.
