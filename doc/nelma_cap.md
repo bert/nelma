@@ -616,7 +616,7 @@ the layers of the printed circuit board).
 For analytical the capacitance calculation used the following equation,
 which does not take into account edge effects:
 
-*** formula (9) ***
+![formula_9](nelma-cap_9.gif) (9)
 
 Where a is the side of the plate, d is the distance between the plates
 and ε is the dielectric constant of the material between the plates.
