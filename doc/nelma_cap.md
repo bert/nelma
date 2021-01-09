@@ -261,7 +261,7 @@ The calculation of the value by Gauss-Seidel iteration ([5], p. 44) is in my
 measure (if we use the general equation for the potential at one node in the computational
 network written above):
 
-*** place a figure here ***
+![equation-8](nelma-cap_eq-8.gif)
 
 ## Implementation
 
