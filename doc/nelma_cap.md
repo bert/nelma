@@ -663,7 +663,7 @@ mass depending on its width.
 The following approximation was used for the analytical calculation of
 capacitance [6]:
 
-*** formula (11) ***
+![formula_11](nelma-cap_11.gif) (11)
 
 Figure 9 shows a graph of the capacitance of the buried microstrip line
 against the mass depending on its width.
