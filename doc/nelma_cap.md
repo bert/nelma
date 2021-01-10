@@ -644,7 +644,7 @@ depending on the side of the plates a.
 Figure 4: Dependence of capacitance C of lateral flat capacitor v
 depending on the side of the plates a.
 
-*** formula (10) ***
+![formula_10](nelma-cap_10.gif) (10)
 
 Where r is the radius of the plates, d is the distance between the
 plates and ε is the dielectric constant of the material surrounding the
