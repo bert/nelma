@@ -670,7 +670,7 @@ against the mass depending on its width.
 For analytical capacitance calculation the following approximation [6]
 has been used:
 
-*** formula (12) ***
+![formula_12](nelma-cap_12.gif) (12)
 
 *** place a figure here ***
 
